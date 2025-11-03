@@ -1,0 +1,1097 @@
+body {
+	background-color: #121212;
+	color: #fff;
+	font-family: 'Helvetica Neue', sans-serif;
+	margin: 0;
+}
+
+/* ヘッダー */
+.header {
+	background: linear-gradient(135deg, #1db954, #1ed760);
+	padding: 1rem 0;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ロゴリンクのスタイル */
+.logo-link {
+	cursor: pointer;
+	transition: all 0.3s ease;
+	display: inline-block;
+}
+
+.logo-link:hover {
+	transform: scale(1.05);
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* ロゴを囲むaタグのスタイル */
+.header a {
+	text-decoration: none !important;
+}
+
+/* 検索ボックス */
+.search-container {
+	position: relative;
+	max-width: 500px;
+}
+
+.search-input {
+	width: 100%;
+	padding: 12px 50px 12px 16px;
+	font-size: 16px;
+	border: none;
+	border-radius: 25px;
+	outline: none;
+	background: rgba(255, 255, 255, 0.9);
+	color: #333;
+	transition: all 0.3s ease;
+}
+
+.search-input:focus {
+	background: white;
+	box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.search-input::placeholder {
+	color: #666;
+}
+
+.search-button {
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: #1db954;
+	border: none;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.search-button:hover {
+	background: #1ed760;
+	transform: translateY(-50%) scale(1.05);
+}
+
+.search-icon {
+	width: 18px;
+	height: 18px;
+	fill: white;
+}
+
+/* メインコンテンツ（左寄せの要） */
+.main-content {
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 0 1rem;
+	text-align: left;
+	/* ← ここでテキストを左寄せに固定 */
+}
+
+/* 楽曲カード */
+.song-card {
+	background: #181818;
+	border-radius: 12px;
+	padding: 1.5rem;
+	margin-bottom: 1.5rem;
+	transition: all 0.3s ease;
+	border: 1px solid #282828;
+	text-align: left;
+	/* 念のため個別にも左寄せ */
+}
+
+.song-card:hover {
+	background: #1f1f1f;
+	transform: translateY(-2px);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.song-info {
+	display: flex;
+	align-items: flex-start;
+	/* 左上基準で揃える */
+	gap: 1rem;
+	margin-bottom: 1rem;
+	text-align: left;
+	/* テキストの左寄せ */
+}
+
+.album-cover {
+	width: 80px;
+	height: 80px;
+	border-radius: 8px;
+	margin-right: 1rem;
+	object-fit: cover;
+	flex-shrink: 0;
+}
+
+.song-details h3 {
+	color: #fff;
+	margin: 0 0 0.5rem 0;
+	font-size: 1.2rem;
+	text-align: left;
+}
+
+.artist-name {
+	color: #b3b3b3;
+	margin: 0;
+	font-size: 1rem;
+	text-align: left;
+}
+
+/* アクションボタン */
+.action-buttons {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1rem;
+	justify-content: flex-start;
+	/* 左寄せ */
+}
+
+.like-button {
+	background: none;
+	border: 2px solid #1db954;
+	color: #1db954;
+	padding: 0.5rem 1rem;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.like-button:hover,
+.like-button.liked {
+	background: #1db954;
+	color: white;
+}
+
+.like-count {
+	font-size: 0.9rem;
+	color: #b3b3b3;
+}
+
+/* コメント欄 */
+.comment-section {
+	border-top: 1px solid #282828;
+	padding-top: 1rem;
+	text-align: left;
+}
+
+.comment-input {
+	width: 100%;
+	background: #242424;
+	border: 1px solid #404040;
+	color: #fff;
+	padding: 12px 15px;
+	border-radius: 8px;
+	resize: vertical;
+	min-height: 80px;
+	font-size: 14px;
+	transition: all 0.3s ease;
+}
+
+.comment-input:focus {
+	outline: none;
+	border-color: #1db954;
+	background: #2a2a2a;
+	box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.1);
+}
+
+.comment-input::placeholder {
+	color: #666;
+}
+
+.comment-button {
+	background: #1db954;
+	border: none;
+	color: white;
+	padding: 10px 24px;
+	border-radius: 20px;
+	cursor: pointer;
+	margin-top: 10px;
+	font-size: 14px;
+	font-weight: 600;
+	transition: all 0.3s ease;
+}
+
+.comment-button:hover {
+	background: #1ed760;
+	transform: scale(1.05);
+}
+
+.comment-button:active {
+	transform: scale(0.98);
+}
+
+.comments-list {
+	margin-top: 1rem;
+	text-align: left;
+}
+
+.comment {
+	background: #242424;
+	padding: 0.75rem;
+	border-radius: 8px;
+	margin-bottom: 0.5rem;
+}
+
+.comment-author {
+	color: #1db954;
+	font-weight: bold;
+	font-size: 0.9rem;
+	text-align: left;
+}
+
+.comment-text {
+	color: #fff;
+	margin: 0.25rem 0 0 0;
+	text-align: left;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+	.song-info {
+		flex-direction: column;
+		align-items: flex-start;
+		text-align: left;
+		/* スマホでも左寄せ */
+	}
+
+	.album-cover {
+		margin-right: 0;
+		margin-bottom: 1rem;
+	}
+
+	.action-buttons {
+		justify-content: flex-start;
+		/* 左寄せ */
+	}
+}
+
+.comment-actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 10px;
+	flex-wrap: wrap;
+}
+
+.like-btn {
+	background: none;
+	border: none;
+	color: #b3b3b3;
+	cursor: pointer;
+	font-size: 14px;
+	padding: 6px 12px;
+	border-radius: 20px;
+	transition: all 0.3s ease;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.like-btn:hover {
+	color: #1db954;
+	background-color: rgba(29, 185, 84, 0.1);
+}
+
+.replies {
+	margin-left: 2rem;
+	margin-top: 0.5rem;
+	border-left: 2px solid #333;
+	padding-left: 1rem;
+}
+
+.reply {
+	background: #1a1a1a;
+}
+
+/* 初期状態（未いいね） */
+.heart-icon {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 2px solid gray;
+	/* 白枠っぽく見せる */
+	border-radius: 50%;
+	position: relative;
+	margin-right: 5px;
+}
+
+.heart-icon::before {
+	content: "❤";
+	color: gray;
+	/* グレーのハート */
+	font-size: 16px;
+	position: absolute;
+	top: -2px;
+	left: 2px;
+}
+
+/* いいね済み */
+.like-btn.liked .heart-icon::before,
+.like-btn-pa.liked .heart-icon::before {
+	color: red;
+	/* 赤色ハート */
+}
+
+.like-btn-pa {
+	background: none;
+	border: 2px solid #1db954;
+	/* ← 緑の枠線 */
+	color: #1db954;
+	padding: 0.5rem 1rem;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.like-btn-pa:hover,
+.like-btn-pa.liked {
+	background: #1db954;
+	color: white;
+}
+
+/* 子コメント（返信）のスタイル */
+.comment.reply {
+	margin-left: 40px;
+	padding-left: 20px;
+	border-left: 2px solid #1DB954;
+}
+
+/* ==========================================
+   返信・編集・削除ボタンのスタイル改善
+   ========================================== */
+
+/* 返信ボタン */
+.reply-btn {
+	background: none !important;
+	border: none !important;
+	color: #b3b3b3 !important;
+	cursor: pointer;
+	font-size: 14px !important;
+	padding: 6px 12px !important;
+	border-radius: 20px;
+	transition: all 0.3s ease;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.reply-btn:hover {
+	color: #1DB954 !important;
+	background-color: rgba(29, 185, 84, 0.1) !important;
+}
+
+.reply-btn::before {
+	content: "↩";
+	font-size: 16px;
+}
+
+/* 編集ボタン */
+.edit-btn {
+	background: none !important;
+	border: none !important;
+	color: #b3b3b3 !important;
+	cursor: pointer;
+	font-size: 14px !important;
+	padding: 6px 12px !important;
+	border-radius: 20px;
+	transition: all 0.3s ease;
+}
+
+.edit-btn:hover {
+	color: #1DB954 !important;
+	background-color: rgba(29, 185, 84, 0.1) !important;
+}
+
+/* 削除ボタン */
+.delete-btn {
+	background: none !important;
+	border: none !important;
+	color: #b3b3b3 !important;
+	cursor: pointer;
+	font-size: 14px !important;
+	padding: 6px 12px !important;
+	border-radius: 20px;
+	transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+	color: #ff4444 !important;
+	background-color: rgba(255, 68, 68, 0.1) !important;
+}
+
+/* 返信フォーム */
+.reply-form {
+	margin-top: 15px;
+	padding: 15px;
+	background-color: rgba(255, 255, 255, 0.05);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reply-form textarea {
+	width: 100%;
+	padding: 12px 15px;
+	border-radius: 8px;
+	background: #242424;
+	border: 1px solid #404040;
+	color: #fff;
+	font-size: 14px;
+	resize: vertical;
+	min-height: 80px;
+	transition: all 0.3s ease;
+}
+
+.reply-form textarea:focus {
+	outline: none;
+	border-color: #1DB954;
+	background: #2a2a2a;
+}
+
+.reply-form textarea::placeholder {
+	color: #666;
+}
+
+.reply-form button {
+	margin-top: 10px;
+	padding: 10px 24px;
+	border-radius: 20px;
+	border: none;
+	background-color: #1DB954;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.reply-form button:hover {
+	background-color: #1ed760;
+	transform: scale(1.05);
+}
+
+/* 編集フォーム */
+.edit-form {
+	margin-top: 15px;
+	padding: 15px;
+	background-color: rgba(29, 185, 84, 0.05);
+	border-radius: 12px;
+	border: 1px solid rgba(29, 185, 84, 0.3);
+}
+
+.edit-form textarea {
+	width: 100%;
+	padding: 12px 15px;
+	border-radius: 8px;
+	background: #242424;
+	border: 1px solid #1DB954;
+	color: #fff;
+	font-size: 14px;
+	resize: vertical;
+	min-height: 80px;
+	transition: all 0.3s ease;
+}
+
+.edit-form textarea:focus {
+	outline: none;
+	border-color: #1ed760;
+	background: #2a2a2a;
+	box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.1);
+}
+
+.edit-form button {
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 10px 24px;
+	border-radius: 20px;
+	border: none;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.edit-form button:first-of-type {
+	background-color: #1DB954;
+	color: #fff;
+}
+
+.edit-form button:first-of-type:hover {
+	background-color: #1ed760;
+	transform: scale(1.05);
+}
+
+.edit-form button:last-of-type {
+	background-color: transparent;
+	color: #b3b3b3;
+	border: 1px solid #404040;
+}
+
+.edit-form button:last-of-type:hover {
+	background-color: #404040;
+	color: #fff;
+}
+
+/* 削除確認フォーム */
+.delete-confirm {
+	margin-top: 15px;
+	padding: 15px;
+	background-color: rgba(255, 68, 68, 0.05);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 68, 68, 0.3);
+}
+
+.delete-confirm p {
+	margin: 0 0 15px 0;
+	color: #ff6b6b;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.delete-confirm button {
+	margin-right: 10px;
+	padding: 10px 24px;
+	border-radius: 20px;
+	border: none;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.delete-confirm button:first-of-type {
+	background-color: #ff4444;
+	color: white;
+}
+
+.delete-confirm button:first-of-type:hover {
+	background-color: #ff6666;
+	transform: scale(1.05);
+}
+
+.delete-confirm button:last-of-type {
+	background-color: transparent;
+	color: #b3b3b3;
+	border: 1px solid #404040;
+}
+
+.delete-confirm button:last-of-type:hover {
+	background-color: #404040;
+	color: #fff;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+	.reply-form,
+	.edit-form,
+	.delete-confirm {
+		padding: 12px;
+	}
+
+	.reply-form button,
+	.edit-form button,
+	.delete-confirm button {
+		padding: 8px 20px;
+		font-size: 13px;
+	}
+
+	.comment-actions {
+		gap: 6px;
+	}
+
+	.reply-btn,
+	.edit-btn,
+	.delete-btn {
+		padding: 5px 10px !important;
+		font-size: 13px !important;
+	}
+}
+
+/* ==========================================
+   以下、元のCSSの残り部分
+   ========================================== */
+
+body {
+	background-color: #121212;
+	color: #fff;
+	font-family: 'Helvetica Neue', sans-serif;
+	margin: 0;
+}
+
+h2,
+h3 {
+	margin-top: 30px;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+
+a {
+	color: #1DB954;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* ==========================================
+   ヘッダー・ナビゲーション
+   ========================================== */
+.navbar {
+	background-color: #181818 !important;
+	border-bottom: 1px solid #282828;
+}
+
+.navbar-brand {
+	color: #1DB954 !important;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.navbar-brand img {
+	height: 40px;
+	filter: brightness(0) invert(1);
+}
+
+.navbar-nav .nav-link {
+	color: #b3b3b3 !important;
+	padding: 8px 16px !important;
+	border-radius: 20px;
+	transition: all 0.3s ease;
+	font-size: 14px;
+}
+
+.navbar-nav .nav-link:hover {
+	background-color: #282828;
+	color: #fff !important;
+}
+
+/* 未ログイン用リンクスタイル */
+.nav-item:first-child .nav-link {
+	border: 1px solid #1DB954;
+	color: #1DB954 !important;
+}
+
+.nav-item:first-child .nav-link:hover {
+	background-color: #1DB954;
+	color: black !important;
+}
+
+.nav-item:nth-child(2) .nav-link {
+	background-color: #1DB954;
+	color: black !important;
+	font-weight: 500;
+}
+
+.nav-item:nth-child(2) .nav-link:hover {
+	background-color: #17a84b;
+}
+
+/* ドロップダウンメニュー */
+.dropdown-toggle {
+	color: #fff !important;
+}
+
+.dropdown-toggle::after {
+	content: '▼';
+	border: none;
+	font-size: 12px;
+	margin-left: 8px;
+}
+
+.dropdown-menu {
+	background-color: #282828 !important;
+	border: none !important;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-item {
+	color: #b3b3b3 !important;
+	padding: 12px 16px;
+	font-size: 14px;
+	transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+	background-color: #404040 !important;
+	color: #fff !important;
+}
+
+.dropdown-divider {
+	border-color: #404040 !important;
+	margin: 8px 0;
+}
+
+/* ==========================================
+   サイドバー
+   ========================================== */
+.sidebar {
+	background-color: #000;
+	min-height: calc(100vh - 76px);
+	padding-top: 1rem;
+}
+
+.sidebar a {
+	color: #b3b3b3;
+	text-decoration: none;
+	display: block;
+	padding: 0.75rem 1rem;
+}
+
+.sidebar a:hover {
+	background-color: #282828;
+	color: #fff;
+}
+
+/* ==========================================
+   メインコンテンツ
+   ========================================== */
+.content-wrapper {
+	min-height: calc(100vh - 76px);
+}
+
+/* ==========================================
+   検索機能
+   ========================================== */
+
+/* 検索ヘッダー */
+.search-header {
+	background-color: #181818;
+	padding: 1rem 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: sticky;
+	top: 76px;
+	z-index: 10;
+}
+
+.search-header input[type="text"] {
+	flex: 1;
+	max-width: 400px;
+	padding: 10px 15px;
+	font-size: 16px;
+	border-radius: 20px;
+	border: none;
+	margin-right: 10px;
+	background-color: #242424;
+	color: white;
+}
+
+.search-header input[type="text"]::placeholder {
+	color: #b3b3b3;
+}
+
+.search-header button {
+	padding: 10px 20px;
+	font-size: 16px;
+	background-color: #1DB954;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.search-header button:hover {
+	background-color: #17a84b;
+}
+
+/* 検索候補ドロップダウン */
+.search-suggestions {
+	position: absolute;
+	top: calc(100% + 8px);
+	left: 0;
+	right: 0;
+	background-color: #282828;
+	border-radius: 8px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+	max-height: 400px;
+	overflow-y: auto;
+	z-index: 1000;
+	display: none;
+}
+
+.search-suggestions.show {
+	display: block;
+}
+
+.suggestions-section {
+	padding: 8px 0;
+}
+
+.suggestions-section:not(:last-child) {
+	border-bottom: 1px solid #404040;
+}
+
+.suggestions-title {
+	padding: 8px 16px;
+	font-size: 12px;
+	font-weight: 600;
+	color: #b3b3b3;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.suggestion-item {
+	display: flex;
+	align-items: center;
+	padding: 12px 16px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	text-decoration: none;
+	color: white;
+}
+
+.suggestion-item:hover {
+	background-color: #3e3e3e;
+}
+
+.suggestion-icon {
+	width: 40px;
+	height: 40px;
+	background-color: #333;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 12px;
+	flex-shrink: 0;
+}
+
+.suggestion-icon svg {
+	width: 20px;
+	height: 20px;
+	fill: #b3b3b3;
+}
+
+.suggestion-details {
+	flex: 1;
+	min-width: 0;
+}
+
+.suggestion-name {
+	font-size: 14px;
+	font-weight: 500;
+	color: white;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-bottom: 2px;
+}
+
+.suggestion-name strong {
+	color: #1DB954;
+}
+
+.suggestion-artist {
+	font-size: 12px;
+	color: #b3b3b3;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.no-results {
+	padding: 20px 16px;
+	text-align: center;
+	color: #b3b3b3;
+	font-size: 14px;
+}
+
+/* スクロールバーのスタイル */
+.search-suggestions::-webkit-scrollbar {
+	width: 10px;
+}
+
+.search-suggestions::-webkit-scrollbar-track {
+	background: #282828;
+	border-radius: 8px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb {
+	background: #404040;
+	border-radius: 8px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb:hover {
+	background: #4a4a4a;
+}
+
+/* ==========================================
+   アーティスト情報
+   ========================================== */
+.artist-info {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+	background-color: #181818;
+	padding: 20px;
+	border-radius: 12px;
+	gap: 16px;
+}
+
+.artist-info img {
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	margin-right: 20px;
+	object-fit: cover;
+	flex-shrink: 0;
+}
+
+.artist-info .meta {
+	flex: 1;
+	min-width: 0;
+}
+
+.artist-info .meta h2,
+.artist-info .meta p {
+	margin: 0 0 6px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* ==========================================
+   トラックリスト
+   ========================================== */
+.track-list {
+	margin-top: 15px;
+}
+
+.track-item {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border-radius: 8px;
+	transition: background 0.2s;
+}
+
+.track-item:hover {
+	background-color: #282828;
+}
+
+.track-thumb {
+	flex: 0 0 60px;
+	margin-right: 15px;
+}
+
+.track-thumb img {
+	width: 60px;
+	height: 60px;
+	border-radius: 6px;
+	object-fit: cover;
+	display: block;
+}
+
+.track-info {
+	flex: 1;
+	min-width: 0;
+}
+
+.track-info p {
+	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* ==========================================
+   アルバムカード
+   ========================================== */
+.albums {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: 20px;
+	margin-top: 15px;
+}
+
+.album-card {
+	position: relative;
+	background-color: #181818;
+	border-radius: 12px;
+	overflow: hidden;
+	padding: 10px;
+	transition: transform 0.2s;
+}
+
+.album-card:hover {
+	transform: scale(1.05);
+}
+
+.album-card img {
+	width: 100%;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	object-fit: cover;
+}
+
+.album-card p {
+	margin: 0;
+	font-size: 14px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* 再生ボタン風アイコン */
+.play-button {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	background-color: #1DB954;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+.album-card:hover .play-button {
+	opacity: 1;
+}
+
+/* ==========================================
+   レスポンシブデザイン
+   ========================================== */
+@media (max-width: 768px) {
+	.search-header {
+		padding: 1rem;
+		top: auto;
+		position: relative;
+	}
+
+	.search-header input[type="text"] {
+		max-width: none;
+	}
+}
+
+@media (max-width: 576px) {
+	.artist-info {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.artist-info img {
+		margin-right: 0;
+		width: 120px;
+		height: 120px;
+	}
+}

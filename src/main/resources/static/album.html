@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>アルバム詳細</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 20px;
+			background-color: #f9f9f9;
+		}
+
+		h1,
+		h2 {
+			color: #1DB954;
+		}
+
+		.track-card {
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin-bottom: 10px;
+			border-radius: 5px;
+			background: #fff;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 id="albumName">アルバム名</h1>
+	<h2 id="artistName">アーティスト名</h2>
+
+	<div id="tracks"></div>
+
+	<script>
+		// URL パラメータ取得
+		const urlParams = new URLSearchParams(window.location.search);
+		const albumId = urlParams.get('albumId');
+		const artistName = urlParams.get('artist');
+
+
+		async function fetchAlbumDetails() {
+			const response = await fetch(`/api/spotify/album-detail?albumId=${encodeURIComponent(albumId)}`);
+			const data = await response.json();
+
+			document.getElementById('albumName').textContent = data.album.name;
+
+			const tracksDiv = document.getElementById('tracks');
+			data.tracks.forEach(track => {
+				const trackCard = document.createElement('div');
+				trackCard.classList.add('track-card');
+				trackCard.innerHTML = `
+            <p>
+               <strong>曲名:</strong> 
+               <a href="/song?songId=${encodeURIComponent(1)}&title=${encodeURIComponent(track.name)}&artist=${encodeURIComponent(data.album.artist)}">
+                       ${track.name}
+               </a>
+            </p>
+            <p><strong>再生時間:</strong> ${Math.floor(track.duration_ms / 60000)}:${Math.floor((track.duration_ms % 60000) / 1000).toString().padStart(2, '0')}</p>
+        `;
+				tracksDiv.appendChild(trackCard);
+			});
+		}
+
+
+
+		fetchAlbumDetails();
+	</script>
+</body>
+
+</html>

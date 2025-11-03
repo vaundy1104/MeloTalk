@@ -1,0 +1,24 @@
+cat > .gitignore << 'EOF'
+# ビルド成果物
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDE設定ファイル
+.idea/
+*.iml
+.vscode/
+.DS_Store
+.settings/
+.classpath
+.project
+
+# ログファイル
+*.log
+
+# 環境設定（重要情報を含む）
+application-local.properties
+application-secret.properties
+
+# OS固有ファイル
+Thumbs.db
+EOF
