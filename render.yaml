@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: melotalk
+    runtime: docker
+    repo: https://github.com/vaundy1104/MeloTalk
+    region: singapore
+    plan: free
+    branch: main
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SPOTIFY_CLIENT_ID
+        sync: false
+      - key: SPOTIFY_CLIENT_SECRET
+        sync: false
+      - key: SPOTIFY_REDIRECT_URI
+        sync: false
+      - key: JAVA_HOME
+        value: /opt/java/openjdk
